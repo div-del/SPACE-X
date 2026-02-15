@@ -11,6 +11,7 @@ import Explorer from "./pages/Explorer";
 import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 import AppSidebar from "./components/AppSidebar";
+import MobileNav from "./components/MobileNav";
 import SpaceAIChatbox from "./components/SpaceAIChatbox";
 
 const queryClient = new QueryClient();
@@ -23,7 +24,8 @@ const App = () => (
       <BrowserRouter>
         <div className="flex min-h-screen w-full">
           <AppSidebar />
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 pt-20 md:pt-0">
+            <MobileNav />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/anomalies" element={<Anomalies />} />

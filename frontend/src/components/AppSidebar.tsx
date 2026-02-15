@@ -1,7 +1,7 @@
 import { LayoutDashboard, AlertTriangle, Activity, Settings, Compass, Brain } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 
-const navItems = [
+export const navItems = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
   { title: "Explorer", url: "/explorer", icon: Compass },
   { title: "Quiz", url: "/quiz", icon: Brain },

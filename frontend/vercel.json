@@ -1,0 +1,24 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/sensor/:path*",
+            "destination": "/api/sensor"
+        },
+        {
+            "source": "/api/anomaly/:path*",
+            "destination": "/api/anomaly"
+        },
+        {
+            "source": "/api/stability/:path*",
+            "destination": "/api/stability"
+        },
+        {
+            "source": "/api/health",
+            "destination": "/api/health"
+        },
+        {
+            "source": "/((?!api/).*)",
+            "destination": "/index.html"
+        }
+    ]
+}

@@ -322,6 +322,18 @@ npm run test:watch  # Watch mode
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
+<img width="949" height="497" alt="image" src="https://github.com/user-attachments/assets/e8739c2c-490e-48d7-b750-d34a88bf69bd" />
+<img width="942" height="503" alt="image" src="https://github.com/user-attachments/assets/c93839c8-58df-4f42-a030-0c1187ac6d0b" />
+<img width="454" height="445" alt="image" src="https://github.com/user-attachments/assets/41e270fb-c369-43a8-8918-7e78d2205e7e" />
+<img width="930" height="486" alt="image" src="https://github.com/user-attachments/assets/1036dd3d-be6f-4374-9625-562317b67587" />
+<img width="805" height="362" alt="image" src="https://github.com/user-attachments/assets/230f114e-30c3-44d1-b6c8-ed2b0eec34bb" />
+<img width="768" height="328" alt="image" src="https://github.com/user-attachments/assets/3ffbcf68-d4c1-4c9a-a5f0-506317ba82ff" />
+
+
+
+
+
+
 
 ---
 

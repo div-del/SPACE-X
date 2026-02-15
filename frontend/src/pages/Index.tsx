@@ -5,6 +5,7 @@ import StabilityRing from "@/components/StabilityRing";
 import AnomalyFeed from "@/components/AnomalyFeed";
 import TrendGraph from "@/components/TrendGraph";
 import AIInsightPanel from "@/components/AIInsightPanel";
+import NasaApod from "@/components/NasaApod";
 import { useSpaceXData } from "@/hooks/useSpaceXData";
 
 // Mission timer hook
@@ -43,15 +44,15 @@ const Index = () => {
   const missionTime = useMissionTime(missionStart);
   const lastAnalysisSecs = useLastAnalysis(backendOnline);
 
-  const hasWeatherAnomaly   = anomalies.some(a => a.sensor_type === "weather"    && !a.acknowledged);
+  const hasWeatherAnomaly = anomalies.some(a => a.sensor_type === "weather" && !a.acknowledged);
   const hasSolarWindAnomaly = anomalies.some(a => a.sensor_type === "solar_wind" && !a.acknowledged);
-  const hasRadiationAnomaly = anomalies.some(a => a.sensor_type === "radiation"  && !a.acknowledged);
+  const hasRadiationAnomaly = anomalies.some(a => a.sensor_type === "radiation" && !a.acknowledged);
 
   const totalAlerts = summary.critical + summary.high + summary.medium + summary.low;
   const avgStability = Math.round((
     ((stability.weather?.score ?? 0) +
-     (stability.solar_wind?.score ?? 0) +
-     (stability.radiation?.score ?? 0)) / 3
+      (stability.solar_wind?.score ?? 0) +
+      (stability.radiation?.score ?? 0)) / 3
   ) * 100);
 
   // Dynamic system status
@@ -180,7 +181,7 @@ const Index = () => {
             <div className="flex justify-around items-center flex-wrap gap-6">
               <StabilityRing label="Planetary" value={loading ? 0 : Math.round((stability.weather?.score ?? 0) * 100)} icon="🌤️" />
               <StabilityRing label="Solar Wind" value={loading ? 0 : Math.round((stability.solar_wind?.score ?? 0) * 100)} icon="🌬️" />
-              <StabilityRing label="Radiation"  value={loading ? 0 : Math.round((stability.radiation?.score ?? 0) * 100)} icon="☢️" />
+              <StabilityRing label="Radiation" value={loading ? 0 : Math.round((stability.radiation?.score ?? 0) * 100)} icon="☢️" />
             </div>
             {loading && (
               <p className="text-center text-xs font-mono text-muted-foreground mt-4 animate-pulse">
@@ -192,6 +193,41 @@ const Index = () => {
 
         {/* ── Anomaly Feed ─────────────────────────────────── */}
         <AnomalyFeed anomalies={anomalies} loading={loading} />
+
+        {/* ── NASA APOD + Quick Links ────────────────────────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <NasaApod />
+
+          {/* Quick Links */}
+          <div className="rounded-lg border border-border/40 bg-card/60 backdrop-blur-sm glow-border-cyan p-6">
+            <h3 className="text-xs font-orbitron uppercase tracking-widest text-primary glow-text-cyan mb-4">
+              🚀 Quick Actions
+            </h3>
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href="/explorer"
+                className="group rounded-lg border border-border/40 bg-muted/10 p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all"
+              >
+                <span className="text-3xl block mb-2 group-hover:scale-110 transition-transform inline-block">🪐</span>
+                <span className="text-xs font-orbitron font-bold text-foreground/80 block">EXPLORER</span>
+                <span className="text-[9px] font-mono text-muted-foreground">Solar System</span>
+              </a>
+              <a
+                href="/quiz"
+                className="group rounded-lg border border-border/40 bg-muted/10 p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all"
+              >
+                <span className="text-3xl block mb-2 group-hover:scale-110 transition-transform inline-block">🛰️</span>
+                <span className="text-xs font-orbitron font-bold text-foreground/80 block">SPACE QUIZ</span>
+                <span className="text-[9px] font-mono text-muted-foreground">Test Knowledge</span>
+              </a>
+            </div>
+            <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-3 text-center">
+              <p className="text-[10px] font-mono text-primary/80">
+                💬 Click the <span className="text-primary font-bold">🚀</span> button to ask Space AI anything!
+              </p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>

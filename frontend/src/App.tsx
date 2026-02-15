@@ -7,8 +7,11 @@ import Index from "./pages/Index";
 import Anomalies from "./pages/Anomalies";
 import Stability from "./pages/Stability";
 import Settings from "./pages/Settings";
+import Explorer from "./pages/Explorer";
+import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 import AppSidebar from "./components/AppSidebar";
+import SpaceAIChatbox from "./components/SpaceAIChatbox";
 
 const queryClient = new QueryClient();
 
@@ -25,12 +28,16 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/anomalies" element={<Anomalies />} />
               <Route path="/stability" element={<Stability />} />
+              <Route path="/explorer" element={<Explorer />} />
+              <Route path="/quiz" element={<Quiz />} />
               <Route path="/settings" element={<Settings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
         </div>
+        {/* Global floating AI chatbox */}
+        <SpaceAIChatbox />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -1,8 +1,10 @@
-import { LayoutDashboard, AlertTriangle, Activity, Settings } from "lucide-react";
+import { LayoutDashboard, AlertTriangle, Activity, Settings, Compass, Brain } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 
 const navItems = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Explorer", url: "/explorer", icon: Compass },
+  { title: "Quiz", url: "/quiz", icon: Brain },
   { title: "Anomalies", url: "/anomalies", icon: AlertTriangle },
   { title: "Stability", url: "/stability", icon: Activity },
   { title: "Settings", url: "/settings", icon: Settings },

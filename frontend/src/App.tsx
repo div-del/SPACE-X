@@ -4,6 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Anomalies from "./pages/Anomalies";
+import Stability from "./pages/Stability";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import AppSidebar from "./components/AppSidebar";
 
@@ -20,6 +23,9 @@ const App = () => (
           <main className="flex-1 min-w-0">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/anomalies" element={<Anomalies />} />
+              <Route path="/stability" element={<Stability />} />
+              <Route path="/settings" element={<Settings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
